@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>冬開催 こどもSNS動画クリエイター養成スクール｜ユースアカデミー熊本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ebeff3;--card:#fff;--blue:#2f6db5;--sky:#6a97bb;--ice:#a9cde6;--green:#0a8f3c;--red:#e8532a;--brown:#5a4339;--pink:#e08fb0;--yellow:#f6c453;--ink:#3a3a3a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;line-break:strict;word-break:auto-phrase;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;font-weight:500;line-height:1.85;overflow-x:hidden}
+canvas#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+nav{position:sticky;top:0;z-index:40;background:rgba(235,239,243,.92);backdrop-filter:blur(8px);display:flex;gap:4px;overflow-x:auto;padding:10px 12px;border-bottom:2px dashed var(--ice)}
+nav a{flex:none;color:var(--blue);text-decoration:none;font-weight:700;font-size:.85rem;padding:4px 12px;border-radius:99px;transition:.2s}
+nav a:hover,nav a:focus-visible{background:var(--blue);color:#fff;outline:none}
+h2,h3{text-wrap:balance}
+section{padding:72px 20px;max-width:980px;margin:0 auto}
+h2{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:900;margin:0 0 8px;color:var(--brown);display:inline-block;background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.lead{margin:0 0 32px}
+.hero{max-width:none;text-align:center;padding:56px 16px 120px;position:relative;background:linear-gradient(var(--bg) 60%,#cfe3f0)}
+.tag{display:inline-block;background:var(--sky);color:#fff;font-weight:700;padding:6px 24px;border:2px dashed #fff;outline:4px solid var(--sky);border-radius:6px;margin:6px 0 28px}
+.cloud{background:#fff;border-radius:48px;padding:28px 20px 32px;max-width:760px;margin:0 auto;box-shadow:0 0 0 6px #fff,0 8px 0 6px rgba(106,151,187,.25)}
+.cloud small{display:block;font-size:clamp(1.6rem,6vw,2.4rem);font-weight:900;color:#2a9fd8}
+.cloud h1{margin:0;font-size:clamp(1.2rem,5.8vw,3.2rem);line-height:1.3;font-weight:900;color:#4a4a4a;white-space:nowrap}
+.cloud h1 .g{color:var(--green)}.cloud h1 .r{color:var(--red)}
+.ribbon{display:block;width:fit-content;max-width:92%;margin:28px auto 0;background:var(--blue);color:#fff;font-weight:700;padding:10px 28px;transform:rotate(-2deg);clip-path:polygon(0 0,100% 4%,100% 96%,0 100%);animation:wave 4s ease-in-out infinite}
+@keyframes wave{50%{transform:rotate(1deg)}}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px 0}
+.chip{background:#fff;border:3px dashed;border-radius:20px;padding:10px 20px;font-weight:900}
+.chip span{display:block;font-size:.75rem;color:#fff;border-radius:8px;padding:0 10px;margin-bottom:4px}
+.c1{border-color:#8ec1ee}.c1 span{background:#6fb0ea}.c2{border-color:var(--pink)}.c2 span{background:var(--pink)}.c3{border-color:#f5b86c}.c3 span{background:#f5a944}
+.btn{display:inline-block;background:var(--red);color:#fff;font:inherit;font-weight:900;font-size:1.1rem;border:0;border-radius:99px;padding:14px 36px;text-decoration:none;cursor:pointer;box-shadow:0 5px 0 #b13a17;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 #b13a17}.btn:active{transform:translateY(5px);box-shadow:0 0 0 #b13a17}
+.btn:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.hills{position:absolute;left:0;right:0;bottom:0;height:90px;background:radial-gradient(ellipse 60% 100% at 25% 100%,#9fc6e3 98%,transparent 100%),radial-gradient(ellipse 70% 100% at 80% 100%,#b9d7ec 98%,transparent 100%)}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--card);border-radius:24px;padding:24px;border:3px solid #dbe6ee;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-6px) rotate(-.6deg);box-shadow:0 12px 0 rgba(106,151,187,.25);border-color:var(--sky)}
+.card h3{margin:0 0 6px;font-size:1.2rem;font-weight:900}
+.pill{white-space:nowrap;display:inline-block;color:#fff;font-weight:900;border-radius:99px;padding:2px 18px;margin-bottom:10px}
+.step{text-align:center}.step .dot{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-size:2.6rem}
+.x{align-self:center;text-align:center;font-size:2rem;color:var(--brown);display:none}
+#teachers .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.person{display:flex;gap:16px;align-items:center}
+.avatar{flex:none;width:84px;height:84px;border-radius:20px;display:grid;place-items:center;font-size:2.4rem;border:3px solid}
+.role{white-space:nowrap;font-size:.75rem;color:#fff;border-radius:6px;padding:1px 10px;font-weight:700}
+.tt{list-style:none;margin:0;padding:0}
+.tt li{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:12px 0;border-bottom:2px dashed #dbe6ee}
+.tt time{font-weight:900;color:var(--blue)}
+.tabs{display:flex;gap:10px;margin-bottom:16px}
+.tabs button{font:inherit;font-weight:900;border:3px solid var(--blue);background:#fff;color:var(--blue);border-radius:99px;padding:8px 24px;cursor:pointer;transition:.2s}
+.tabs button[aria-selected=true]{background:var(--blue);color:#fff}
+.panel[hidden]{display:none}
+.map{background:#d9eaf5;border-radius:24px;padding:20px;border:3px solid #fff;box-shadow:0 0 0 3px #cfe0ec;position:relative;min-height:240px;overflow:hidden}
+.map .road{position:absolute;left:0;right:0;top:55%;height:30px;background:#fff;opacity:.9}
+.map .pin{position:absolute;left:50%;top:22%;transform:translateX(-50%);text-align:center;font-weight:900;animation:bob 1.6s ease-in-out infinite}
+.map .pin b{display:block;background:var(--red);color:#fff;border-radius:16px;padding:6px 14px}
+.map .pin i{display:block;font-style:normal;font-size:2rem;line-height:1}
+@keyframes bob{50%{transform:translate(-50%,-8px)}}
+dl{margin:0}dt{font-weight:900;color:var(--blue);margin-top:12px}dd{margin:0}
+details{background:#fff;border-radius:18px;margin-bottom:12px;border:3px solid #dbe6ee;overflow:hidden}
+summary{cursor:pointer;font-weight:900;padding:16px 52px 16px 20px;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"＋";position:absolute;right:20px;top:14px;color:var(--red);transition:transform .3s}
+details[open] summary::after{transform:rotate(135deg)}
+details[open]{border-color:var(--sky)}
+details p{margin:0;padding:0 20px 18px;animation:open .35s}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}}
+.apply{max-width:none;background:var(--brown);color:#fff;text-align:center;border-radius:40px 40px 0 0;margin-top:40px}
+.apply>div{max-width:760px;margin:0 auto}
+.apply h2{color:#fff;background:linear-gradient(transparent 62%,rgba(255,255,255,.2) 62%)}
+.ig{display:inline-block;background:#a8917f;border-radius:12px;padding:8px 20px;font-weight:900;margin:12px 0 24px;word-break:break-all}
+.org{font-size:.9rem;margin-top:36px;opacity:.9}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.on{opacity:1;transform:none}
+.note{font-size:.8rem;opacity:.75}
+@media(min-width:720px){.x.show{display:block}.steps{grid-template-columns:1fr auto 1fr auto 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<nav aria-label="ページ内メニュー"><a href="#about">概要</a><a href="#appeal">魅力</a><a href="#teachers">講師</a><a href="#time">タイムテーブル</a><a href="#access">会場・アクセス</a><a href="#fee">対象・料金</a><a href="#faq">よくある質問</a><a href="#apply">お申し込み</a></nav>
+
+<header class="hero">
+  <span class="tag">わくわくをカタチに</span>
+  <div class="cloud"><small>冬開催</small><h1>こども<span class="g">SNS</span>動画クリエイター<br><span class="r">養成</span>スクール</h1></div>
+  <span class="ribbon">熊本の“今”を、こどもたちの視点で発信しよう！</span>
+  <div class="chips">
+    <div class="chip c1"><span>日程</span>12月5日（土）・6日（日）</div>
+    <div class="chip c2"><span>時間</span>10:00〜17:00 ／ 10:00〜11:30</div>
+    <div class="chip c3"><span>場所</span>くまもと森都心プラザ</div>
+  </div>
+  <a class="btn" href="#apply">DMで申し込む</a>
+  <div class="hills" aria-hidden="true"></div>
+</header>
+
+<section id="about" class="rv">
+  <h2>イベント概要</h2>
+  <p class="lead">このスクールでは、熊本の企業を実際に訪問するフィールドワークを通して、プロのクリエイターから動画の撮影や編集を学び、自分たちでSNS動画を制作します。動画づくりを通して、3つの力を楽しく身につけられるプログラムです✨</p>
+  <div class="grid">
+    <div class="card"><h3>観察する力</h3><p>企業を訪問し、現場をよく見て、気づく力を育てます。</p></div>
+    <div class="card"><h3>考える力</h3><p>何をどう撮れば伝わるかを、自分たちで考えて動画にします。</p></div>
+    <div class="card"><h3>伝える力</h3><p>完成した動画で、見る人にわかりやすく届ける力を身につけます。</p></div>
+    <div class="card" style="grid-column:1/-1;text-align:center"><h3>🏅 最終日は発表会と表彰式</h3><p style="margin:0">制作した動画の発表会と表彰式を予定しています。</p></div>
+  </div>
+</section>
+
+<section id="appeal" class="rv">
+  <h2>3つの魅力</h2>
+  <p class="lead">探究 × 創造 × 発信。こどもたちの想像力を開花させよう！</p>
+  <div class="grid steps">
+    <div class="card step"><div class="dot" style="background:#fde3d8">🔍</div><span class="pill" style="background:var(--red)">探究（観る）</span><p>自発的にものごとに取り組む力を養います。</p></div>
+    <div class="x show">×</div>
+    <div class="card step"><div class="dot" style="background:#fff0d6">📷</div><span class="pill" style="background:#f5a944">創造（撮る）</span><p>スマホをクリエイティブなツールへ。創造力と表現力を身につけます。</p></div>
+    <div class="x show">×</div>
+    <div class="card step"><div class="dot" style="background:#e3f0fb">💬</div><span class="pill" style="background:#4a9be0">発信（伝える）</span><p>正しい発信力を身につけ、成功体験として心に残します。</p></div>
+  </div>
+  <div class="grid" style="margin-top:20px">
+    <div class="card"><h3>✅ SNSとの正しい向き合い方・ガイド講座</h3><p>安心して発信するためのルールとマナーを学びます。</p></div>
+    <div class="card"><h3>✅ SNSのプロが教える動画撮影・編集講座</h3><p>撮り方から編集まで、プロの技を教わります。</p></div>
+    <div class="card"><h3>✅ オリジナル修了証を授与</h3><p>がんばった証を、世界にひとつの修了証で。</p></div>
+  </div>
+</section>
+
+<section id="teachers" class="rv">
+  <h2>講師紹介</h2>
+  <p class="lead">&nbsp;</p>
+  <div class="grid">
+    
+    <div class="card person"><div class="avatar" style="border-color:var(--pink);background:#fbe7ef">📷</div><div><span class="role" style="background:var(--pink)">アカデミー校長</span><h3>中原 まなほ</h3><p style="margin:0">元小学校教諭</p></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#4a9be0;background:#e3f0fb">📱</div><div><span class="role" style="background:#4a9be0">SNSの先生</span><h3>永木 かい</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#6a97bb;background:#e8f0f6">💻</div><div><span class="role" style="background:#6a97bb">パソコンの先生</span><h3>堀田 なるし</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#e08fb0;background:#fbe7ef">🎞️</div><div><span class="role" style="background:#e08fb0">へんしゅうの先生</span><h3>松永 わかな</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#8a7fd6;background:#ece9fa">🚀</div><div><span class="role" style="background:#8a7fd6">きかくの先生</span><h3>有川 ゆうた</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#f5a944;background:#fff0d6">🎨</div><div><span class="role" style="background:#f5a944">デザインの先生</span><h3>伊藤 あやか</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#0a8f3c;background:#e0f3e7">🎥</div><div><span class="role" style="background:#0a8f3c">カメラの先生</span><h3>藤川 ひろや</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#a8917f;background:#f3ece6">🌟</div><div><span class="role" style="background:#a8917f">講師</span><h3>生田 けんせい</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#a8917f;background:#f3ece6">🍀</div><div><span class="role" style="background:#a8917f">講師</span><h3>元村 ゆり</h3></div></div>
+    <p style="grid-column:1/-1;margin:0;font-weight:700">監修：丸山 泰（熊本県立大学名誉教授）</p>
+  </div>
+</section>
+
+<section id="time" class="rv">
+  <h2>タイムテーブル</h2>
+  <p class="lead">日をえらんで流れを確認できます。<span class="note">※詳細な進行は変更になる場合があります。</span></p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-p="d1">12月5日（土）</button>
+    <button role="tab" aria-selected="false" data-p="d2">12月6日（日）</button>
+  </div>
+  <div class="card">
+    <ul class="tt panel" id="d1">
+      <li><time>10:00</time><span>開講式</span></li>
+      <li><time>10:10</time><span>企画づくり</span></li>
+      <li><time>10:30</time><span>撮影講座</span></li>
+      <li><time>10:30</time><span>フィールドワーク</span></li>
+      <li><time>13:00</time><span>昼食</span></li>
+      <li><time>14:00</time><span>SNSとの正しい向き合い方講座</span></li>
+      <li><time>14:10</time><span>編集講座</span></li>
+      <li><time>14:30</time><span>動画編集</span></li>
+      <li><time>17:00</time><span>終了</span></li>
+    </ul>
+    <ul class="tt panel" id="d2" hidden>
+      <li><time>10:00</time><span>制作した動画の発表会</span></li>
+      <li><time>11:00</time><span>表彰式</span></li>
+      
+      <li><time>11:30</time><span>終了</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="access" class="rv">
+  <h2>会場・アクセス</h2>
+  <p class="lead">会場は「くまもと森都心プラザ」です。</p>
+  <div class="grid">
+    
+    <div class="card"><dl>
+      <dt>会場</dt><dd>くまもと森都心プラザ</dd>
+      <dt>主催</dt><dd>Evoliv（株式会社Evoliv）</dd>
+      <dt>ご来場の方へ</dt><dd>公共交通機関でのご来場をおすすめします。詳しい行き方はお問い合わせください。</dd>
+    </dl></div>
+  </div>
+</section>
+
+<section id="fee" class="rv">
+  <h2>対象・料金</h2>
+  <div class="grid" style="margin-top:20px">
+    <div class="card"><h3>対象</h3><p>熊本市近郊にお住まいの小学4年生〜中学生</p></div>
+    <div class="card"><h3>料金</h3><p>無料です。</p></div>
+    <div class="card"><h3>お申し込み方法</h3><p>公式InstagramのDMから受け付けています。</p></div>
+  </div>
+</section>
+
+<section id="faq" class="rv">
+  <h2>よくある質問</h2>
+  <p class="lead">&nbsp;</p>
+  <details><summary>どんな子が参加できますか？</summary><p>熊本市近郊にお住まいの、小学4年生から中学生が対象です。</p></details>
+  <details><summary>動画づくりが初めてでも大丈夫？</summary><p>大丈夫です。プロが撮り方から編集まで一つずつ教えます。</p></details>
+  <details><summary>参加費はかかりますか？</summary><p>無料です。</p></details>
+  <details><summary>持ち物は必要ですか？</summary><p>12月5日（土）：お弁当、水筒、筆記用具、帽子<br>12月6日（日）：水筒、筆記用具</p></details>
+  <details><summary>2日間とも参加が必要ですか？</summary><p>12月5日・6日の2日間で一つの流れになっています。両日の参加をおすすめします。</p></details>
+  <details><summary>申し込み方法を教えてください。</summary><p>公式Instagram「@youth.academy.kumamoto」へDMでご連絡ください。</p></details>
+</section>
+
+<section id="apply" class="apply rv">
+  <div>
+    <h2>お申し込み</h2>
+    <p>お申し込みは公式InstagramのDMにて！</p>
+    <span class="ig">@youth.academy.kumamoto</span><br>
+    <a class="btn" href="https://www.instagram.com/youth.academy.kumamoto/" target="_blank" rel="noopener">Instagramを開く</a>
+    <p class="org">株式会社Evoliv<br>熊本県熊本市北区龍田1丁目24-8<br>TEL：096-285-6426</p>
+  </div>
+</section>
+
+<script>
+(function(){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+document.querySelectorAll('.tabs button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.tabs button').forEach(function(x){x.setAttribute('aria-selected',x===b)});
+document.querySelectorAll('.panel').forEach(function(p){p.hidden=p.id!==b.dataset.p})})});
+var c=document.getElementById('snow'),x=c.getContext('2d'),f=[],W,H;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();addEventListener('resize',rs);
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+for(var i=0;i<40;i++)f.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,s:Math.random()*.8+.4,d:Math.random()*6});
+(function t(){x.clearRect(0,0,W,H);x.fillStyle='rgba(255,255,255,.9)';x.strokeStyle='rgba(106,151,187,.35)';
+f.forEach(function(p){p.y+=p.s;p.d+=.02;p.x+=Math.sin(p.d)*.5;if(p.y>H){p.y=-5;p.x=Math.random()*W}
+x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();x.stroke()});requestAnimationFrame(t)})()}
+})();
+</script>
+</body>
+</html>
