@@ -43,9 +43,10 @@ h2{font-size:clamp(1.6rem,5vw,2.2rem);font-weight:900;margin:0 0 8px;color:var(-
 .pill{white-space:nowrap;display:inline-block;color:#fff;font-weight:900;border-radius:99px;padding:2px 18px;margin-bottom:10px}
 .step{text-align:center}.step .dot{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-size:2.6rem}
 .x{align-self:center;text-align:center;font-size:2rem;color:var(--brown);display:none}
+#teachers .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .person{display:flex;gap:16px;align-items:center}
 .avatar{flex:none;width:84px;height:84px;border-radius:20px;display:grid;place-items:center;font-size:2.4rem;border:3px solid}
-.role{font-size:.8rem;color:#fff;border-radius:6px;padding:1px 10px;font-weight:700}
+.role{white-space:nowrap;font-size:.75rem;color:#fff;border-radius:6px;padding:1px 10px;font-weight:700}
 .tt{list-style:none;margin:0;padding:0}
 .tt li{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:12px 0;border-bottom:2px dashed #dbe6ee}
 .tt time{font-weight:900;color:var(--blue)}
@@ -129,7 +130,15 @@ details p{margin:0;padding:0 20px 18px;animation:open .35s}
   <p class="lead">&nbsp;</p>
   <div class="grid">
     
-    <div class="card person"><div class="avatar" style="border-color:var(--pink);background:#fbe7ef">📷</div><div><span class="role" style="background:var(--pink)">アカデミー校長</span><h3>中原 眞那帆</h3><p style="margin:0">元小学校教諭</p></div></div>
+    <div class="card person"><div class="avatar" style="border-color:var(--pink);background:#fbe7ef">📷</div><div><span class="role" style="background:var(--pink)">アカデミー校長</span><h3>中原 まなほ</h3><p style="margin:0">元小学校教諭</p></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#4a9be0;background:#e3f0fb">📱</div><div><span class="role" style="background:#4a9be0">SNSの先生</span><h3>永木 かい</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#6a97bb;background:#e8f0f6">💻</div><div><span class="role" style="background:#6a97bb">パソコンの先生</span><h3>堀田 なるし</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#e08fb0;background:#fbe7ef">🎞️</div><div><span class="role" style="background:#e08fb0">へんしゅうの先生</span><h3>松永 わかな</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#8a7fd6;background:#ece9fa">🚀</div><div><span class="role" style="background:#8a7fd6">きかくの先生</span><h3>有川 ゆうた</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#f5a944;background:#fff0d6">🎨</div><div><span class="role" style="background:#f5a944">デザインの先生</span><h3>伊藤 あやか</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#0a8f3c;background:#e0f3e7">🎥</div><div><span class="role" style="background:#0a8f3c">カメラの先生</span><h3>藤川 ひろや</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#a8917f;background:#f3ece6">🌟</div><div><span class="role" style="background:#a8917f">講師</span><h3>生田 けんせい</h3></div></div>
+    <div class="card person"><div class="avatar" style="border-color:#a8917f;background:#f3ece6">🍀</div><div><span class="role" style="background:#a8917f">講師</span><h3>元村 ゆり</h3></div></div>
     <p style="grid-column:1/-1;margin:0;font-weight:700">監修：丸山 泰（熊本県立大学名誉教授）</p>
   </div>
 </section>
@@ -143,17 +152,20 @@ details p{margin:0;padding:0 20px 18px;animation:open .35s}
   </div>
   <div class="card">
     <ul class="tt panel" id="d1">
-      <li><time>10:00</time><span>開講式、SNSとの正しい向き合い方講座</span></li>
-      <li><time>10:20</time><span>撮影・編集講座</span></li>
-      <li><time>12:00</time><span>お昼休憩</span></li>
-      <li><time>13:30</time><span>フィールドワーク（熊本の企業を訪問）</span></li>
-      <li><time>15:30</time><span>動画編集</span></li>
+      <li><time>10:00</time><span>開講式</span></li>
+      <li><time>10:10</time><span>企画づくり</span></li>
+      <li><time>10:30</time><span>撮影講座</span></li>
+      <li><time>10:30</time><span>フィールドワーク</span></li>
+      <li><time>13:00</time><span>昼食</span></li>
+      <li><time>14:00</time><span>SNSとの正しい向き合い方講座</span></li>
+      <li><time>14:10</time><span>編集講座</span></li>
+      <li><time>14:30</time><span>動画編集</span></li>
       <li><time>17:00</time><span>終了</span></li>
     </ul>
     <ul class="tt panel" id="d2" hidden>
       <li><time>10:00</time><span>制作した動画の発表会</span></li>
-      <li><time>10:50</time><span>表彰式</span></li>
-      <li><time>11:10</time><span>オリジナル修了証の授与</span></li>
+      <li><time>11:00</time><span>表彰式</span></li>
+      
       <li><time>11:30</time><span>終了</span></li>
     </ul>
   </div>
